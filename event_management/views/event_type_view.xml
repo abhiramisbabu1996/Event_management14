@@ -44,9 +44,43 @@
         </record>
 
         <menuitem id="event_management_configuration_menu" name="Configuration" parent="event_management_root_menu"
-                  groups="event_management.group_event_manager"/>
+                  groups="event_management.group_event_manager" sequence="50"/>
         <menuitem id="event_management_type_menu" name="Event Type" parent="event_management_configuration_menu"
                   action="event_management_type_action_view_tree"/>
+<!--        Venue menus and actions-->
+        <record id="event_management_venue_action_view_tree" model="ir.actions.act_window">
+            <field name="name">Event Venue</field>
+            <field name="res_model">event.management.venue</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event type.
+              </p><p>
+                Here you can create different types of events.
+              </p>
+            </field>
+        </record>
+        <record id="event_management_loc_action_view_tree" model="ir.actions.act_window">
+            <field name="name">Locations</field>
+            <field name="res_model">place.place</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add an event type.
+              </p><p>
+                Here you can create different types of events.
+              </p>
+            </field>
+        </record>
+
+
+        <menuitem id="event_management_venu_menu" name="Venues" parent="event_management_root_menu"
+                  groups="event_management.group_event_manager" action="event_management_venue_action_view_tree"/>
+        <menuitem id="event_management_loc_menu" name="Locations" parent="event_management_root_menu"
+                  groups="event_management.group_event_manager" action="event_management_loc_action_view_tree"/>
+
 
     </data>
 </odoo>

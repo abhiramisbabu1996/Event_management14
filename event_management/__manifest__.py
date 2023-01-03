@@ -13,6 +13,7 @@
     'depends': ['product', 'account'],
     'data': ['security/event_security.xml',
              'security/ir.model.access.csv',
+             'views/locations.xml',
              'views/event_management_view.xml',
              'views/event_type_view.xml',
              'views/customer_enquiry_details.xml',

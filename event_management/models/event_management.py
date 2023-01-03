@@ -14,6 +14,8 @@ class EventManagement(models.Model):
     ref = fields.Char(string='Ref', readonly=True)
     type_of_event_id = fields.Many2one('event.management.type', string="Type",
                                        required=True)
+    venue_id = fields.Many2one('event.management.venue', string="Venue",
+                                       required=True)
     partner_id = fields.Many2one('res.partner', string="Customer",
                                  required=True)
     date = fields.Date(string="Date", default=fields.Date.today, required=True)
@@ -221,6 +223,21 @@ class EventServices(models.Model):
     _name = 'event.services'
 
     name = fields.Char(string="Service Name")
+
+
+class EventPlace(models.Model):
+    _name = 'place.place'
+
+    name = fields.Char(string="Name")
+    venue_ids = fields.Many2many('event.management.venue',string="Venues/Auditorium")
+
+
+
+class EventManagementVenue(models.Model):
+    _name = 'event.management.venue'
+
+    name = fields.Char(string="Name")
+    place = fields.Many2one('place.place',string="Place")
 
 
 class EventManagementType(models.Model):
